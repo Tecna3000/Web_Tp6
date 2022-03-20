@@ -5,7 +5,8 @@ let mustache = require('mustache-express');
 
 let app = express();
 app.engine('html', mustache());
-app.set('view engine', 'html');app.set('views', './views');
+app.set('view engine', 'html');app.set('views', './public/views');
+app.use(express.static("public")); //pour le css
 
 let movies = require('./movies');
 movies.load('movies.json');
